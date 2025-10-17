@@ -5,3 +5,4 @@ code
 Fix the computer
 new game
 new member
+Add Gui

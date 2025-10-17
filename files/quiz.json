@@ -1,0 +1,69 @@
+{
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the capital of France?",
+      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "correctAnswer": "Paris"
+    },
+    {
+      "id": 2,
+      "question": "Which language is primarily used for developing Android apps?",
+      "options": ["Python", "Kotlin", "Swift", "C#"],
+      "correctAnswer": "Kotlin"
+    },
+    {
+      "id": 3,
+      "question": "What does HTML stand for?",
+      "options": [
+        "Hyper Trainer Marking Language",
+        "Hyper Text Markup Language",
+        "Hyper Text Marketing Language",
+        "High Text Markup Language"
+      ],
+      "correctAnswer": "Hyper Text Markup Language"
+    },
+    {
+      "id": 4,
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Earth", "Mars", "Venus", "Jupiter"],
+      "correctAnswer": "Mars"
+    },
+    {
+      "id": 5,
+      "question": "Who wrote the novel '1984'?",
+      "options": ["George Orwell", "Aldous Huxley", "Mark Twain", "Ernest Hemingway"],
+      "correctAnswer": "George Orwell"
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is NOT a JavaScript framework?",
+      "options": ["React", "Angular", "Vue", "Django"],
+      "correctAnswer": "Django"
+    },
+    {
+      "id": 7,
+      "question": "What is the value of π (pi) approximately?",
+      "options": ["2.14", "3.14", "4.13", "3.41"],
+      "correctAnswer": "3.14"
+    },
+    {
+      "id": 8,
+      "question": "Which company developed the Windows operating system?",
+      "options": ["Apple", "Google", "Microsoft", "IBM"],
+      "correctAnswer": "Microsoft"
+    },
+    {
+      "id": 9,
+      "question": "Which HTML tag is used to insert an image?",
+      "options": ["<image>", "<img>", "<pic>", "<src>"],
+      "correctAnswer": "<img>"
+    },
+    {
+      "id": 10,
+      "question": "Which data structure works on the principle of FIFO?",
+      "options": ["Stack", "Queue", "Tree", "Graph"],
+      "correctAnswer": "Queue"
+    }
+  ]
+}

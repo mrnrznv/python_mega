@@ -1,5 +1,9 @@
 #from functions import  get_list_form_file, update_file
 from modules import functions as f
+import time
+
+now = time.strftime('%b %d, %Y %H:%M:%S')
+print(now)
 
 while True:
     user_action = input("Type add, edit, show, complete or exit: ")

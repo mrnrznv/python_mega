@@ -14,12 +14,14 @@ add_button = Sg.Button('Add',
                        key='add_button',
                        tooltip="Add new item")
 
-window = Sg.Window('My To-Do App',
-                   layout=[
+layout=[
     [label],
     [input_box, add_button],
     [list_box, edit_button],
-],
+]
+
+window = Sg.Window('My To-Do App',
+                   layout=layout,
                    font=('Helvetica', 18))
 
 while True:
@@ -45,6 +47,7 @@ while True:
         case 'todolist':
             window['todo'].update(value=values['todolist'][0])
         case Sg.WIN_CLOSED:
+            #exit()
             break
 
 window.close()

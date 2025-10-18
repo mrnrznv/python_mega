@@ -4,6 +4,4 @@ Display something
 Code the new program
 Fix the computer
 new game
-new member
 Add Gui
-Edit list itemWe are done

@@ -10,14 +10,17 @@ list_box = Sg.Listbox(values=f.get_list_form_file(),
                         enable_events=True,
                         size=[45, 10])
 edit_button = Sg.Button('Edit', key='edit_button')
+complete_button = Sg.Button('Complete', key='complete_button')
 add_button = Sg.Button('Add',
                        key='add_button',
                        tooltip="Add new item")
-
+exit_button = Sg.Button('Exit', key='exit_button')
+result = Sg.Text(key='output', text_color='red')
 layout=[
     [label],
     [input_box, add_button],
-    [list_box, edit_button],
+    [list_box, edit_button, complete_button],
+    [exit_button, result]
 ]
 
 window = Sg.Window('My To-Do App',
@@ -46,6 +49,16 @@ while True:
             window['todolist'].update(values=todos)
         case 'todolist':
             window['todo'].update(value=values['todolist'][0])
+        case 'complete_button':
+            todo_to_complete = values['todolist'][0]
+            todos = f.get_list_form_file()
+            todos.remove(todo_to_complete)
+
+            f.update_file(todos)
+            window['todo'].update(value='')
+            window['todolist'].update(values=todos)
+        case 'exit_button':
+            exit()
         case Sg.WIN_CLOSED:
             #exit()
             break

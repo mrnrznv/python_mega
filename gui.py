@@ -1,6 +1,10 @@
 import FreeSimpleGUI as Sg
 import modules.functions as f
+import time
 
+Sg.theme('DarkGrey')
+
+clock = Sg.Text('', key='clock')
 label = Sg.Text('Type a to-do')
 input_box = Sg.InputText(key='todo',
                          default_text="",
@@ -17,6 +21,7 @@ add_button = Sg.Button('Add',
 exit_button = Sg.Button('Exit', key='exit_button')
 result = Sg.Text(key='output', text_color='red')
 layout=[
+    [clock],
     [label],
     [input_box, add_button],
     [list_box, edit_button, complete_button],
@@ -28,7 +33,8 @@ window = Sg.Window('My To-Do App',
                    font=('Helvetica', 18))
 
 while True:
-    event, values = window.read()
+    event, values = window.read(timeout=200)
+    window['clock'].update(value=time.strftime('%b %d, %Y %H:%M:%S'))
     match event:
         case 'add_button':
             todos = f.get_list_form_file()
@@ -38,25 +44,33 @@ while True:
             f.update_file(todos)
             window['todolist'].update(values=todos)
         case 'edit_button':
-            todo_to_edit = values['todolist'][0]
-            new_todo = values['todo'] + '\n'
+            try:
+                todo_to_edit = values['todolist'][0]
+                new_todo = values['todo'] + '\n'
 
-            todos = f.get_list_form_file()
-            index = todos.index(todo_to_edit)
-            todos[index] = new_todo
+                todos = f.get_list_form_file()
+                index = todos.index(todo_to_edit)
+                todos[index] = new_todo
 
-            f.update_file(todos)
-            window['todolist'].update(values=todos)
+                f.update_file(todos)
+                window['todolist'].update(values=todos)
+            except IndexError:
+                Sg.popup('Please select a to-do',
+                         font=('Helvetica', 18))
         case 'todolist':
             window['todo'].update(value=values['todolist'][0])
         case 'complete_button':
-            todo_to_complete = values['todolist'][0]
-            todos = f.get_list_form_file()
-            todos.remove(todo_to_complete)
+            try:
+                todo_to_complete = values['todolist'][0]
+                todos = f.get_list_form_file()
+                todos.remove(todo_to_complete)
 
-            f.update_file(todos)
-            window['todo'].update(value='')
-            window['todolist'].update(values=todos)
+                f.update_file(todos)
+                window['todo'].update(value='')
+                window['todolist'].update(values=todos)
+            except IndexError:
+                Sg.popup('Please select a to-do',
+                         font=('Helvetica', 18))
         case 'exit_button':
             exit()
         case Sg.WIN_CLOSED:

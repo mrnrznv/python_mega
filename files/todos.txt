@@ -3,5 +3,6 @@ try block
 Display something
 Code the new program
 Fix the computer
-new game
+New game
+Empty item
 Add Gui
